@@ -1,0 +1,52 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load mineral_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Macky's Minerals: A magnificant catalog of minerals</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'minerals/css/global.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      <a href="{% url 'minerals:list' %}">
+        <img src="{% static 'minerals/css/mineral_logo.svg' %}" class="logo">
+        <h1 class="logo__name text-centered">Minerals Catalog by Adam</h1>
+      </a>
+      <p class="logo__text text-centered">They're not rocks!</p>
+
+    </div>
+    </div>
+            <section class="mineral__search">
+                <form action="{% url 'minerals:search' %}" method="GET">
+                    {% csrf_token %}
+                        <input type="search" name="q" placeholder="Search...">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+              {% block section %}
+              {% endblock %}
+            </section>
+        {% block content %}{% endblock %}
+
+  </div>
+<div class="minerals__random">
+    {% random_mineral as random_pk %}
+    <a class="minerals__anchor" href="{% url 'minerals:detail' pk=random_pk %}">Show random mineral</a>
+    {% sort_letter as sort %}
+    <ul class="sort_letters" id="sort_letters">
+    {% for letter in sort %}
+        <li class="sort_letters"><a href="{% url 'minerals:letter' pk=letter %}">{{ letter }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

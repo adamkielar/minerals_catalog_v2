@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% block section %}
+{% if mineral_filter %}
+<form method="GET">
+    {% csrf_token %}
+    {{ mineral_filter.form }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="grid-100">
+      <ul class="minerals__container">
+        {% for mineral in minerals %}
+        <li class="minerals__item">
+            <a class="minerals__anchor" href="{% url 'minerals:detail' pk=mineral.pk %}">{{ mineral.name }}</a>
+        </li>
+          {% endfor %}
+      </ul>
+            </div>
+{% endblock %}
+<div>
+</div>
