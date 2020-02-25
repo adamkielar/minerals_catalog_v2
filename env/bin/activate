@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Volumes/iMac dane/techdegree-project-6/minerals_catalog/env"
+VIRTUAL_ENV="/Volumes/imac2/minerals_catalog_v2/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

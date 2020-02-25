@@ -1,4 +1,4 @@
-#!/Volumes/iMac dane/techdegree-project-6/minerals_catalog/env/bin/python3
+#!/Volumes/imac2/minerals_catalog_v2/env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

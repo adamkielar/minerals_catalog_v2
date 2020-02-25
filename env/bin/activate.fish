@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Volumes/iMac dane/techdegree-project-6/minerals_catalog/env"
+set -gx VIRTUAL_ENV "/Volumes/imac2/minerals_catalog_v2/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
