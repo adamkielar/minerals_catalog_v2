@@ -44,7 +44,12 @@
     {% sort_letter as sort %}
     <ul class="sort_letters" id="sort_letters">
     {% for letter in sort %}
-        <li class="sort_letters"><a href="{% url 'minerals:letter' pk=letter %}">{{ letter }}</a></li>
+        <li class="sort_letters">
+            <a href="{% url 'minerals:letter' pk=letter %}"
+               class="{% active_letter %}">
+                {{ letter }}
+            </a>
+        </li>
     {% endfor %}
     </ul>
 </div>

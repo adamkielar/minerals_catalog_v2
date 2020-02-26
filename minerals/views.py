@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
 from .models import Mineral
-from .utils import random_mineral_footer
 from .filters import MineralFilter
 
 
