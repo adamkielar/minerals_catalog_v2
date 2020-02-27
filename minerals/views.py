@@ -8,9 +8,11 @@ def mineral_list(request):
     minerals = Mineral.objects.all()
     mineral_filter = MineralFilter(request.GET, queryset=minerals)
     minerals = mineral_filter.qs
+    active_letter = 'A'
 
     return render(request, 'minerals/minerals_list.html', {'minerals': minerals,
                                                            'mineral_filter': mineral_filter,
+                                                           'active_letter': active_letter
                                                            })
 
 
@@ -23,10 +25,14 @@ def mineral_detail(request, pk):
                                                             })
 
 
-def mineral_letter(request, pk):
-    minerals = Mineral.objects.filter(Q(name__istartswith=pk))
+def mineral_letter(request, letter='A'):
+    minerals = Mineral.objects.filter(Q(name__istartswith=letter))
 
-    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+    active_letter = letter
+
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals,
+                                                           'active_letter': letter,
+                                                           })
 
 
 def mineral_search(request):

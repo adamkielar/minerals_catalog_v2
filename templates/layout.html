@@ -41,15 +41,19 @@
 <div class="minerals__random">
     {% random_mineral as random_pk %}
     <a class="minerals__anchor" href="{% url 'minerals:detail' pk=random_pk %}">Show random mineral</a>
-    {% sort_letter as sort %}
     <ul class="sort_letters" id="sort_letters">
+        {% sort_letter as sort %}
     {% for letter in sort %}
+        {% if letter == active_letter %}
         <li class="sort_letters">
-            <a href="{% url 'minerals:letter' pk=letter %}"
-               class="{% active_letter %}">
-                {{ letter }}
-            </a>
+            <a id="{{ letter }}" href="{% url 'minerals:letter' letter=letter %}"
+            class="active">{{ letter }}</a>
         </li>
+        {% else %}
+        <li class="sort_letters">
+            <a id="{{ letter }}" href="{% url 'minerals:letter' letter=letter %}">{{ letter }}</a>
+        </li>
+        {% endif %}
     {% endfor %}
     </ul>
 </div>
