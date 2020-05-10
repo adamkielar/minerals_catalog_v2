@@ -21,3 +21,15 @@ In this project i have 3 filters:
 * user can search for mineral, search filter will check all model fields
 * user can search for mineral by group and category with dropdown filter
 * user can search for mineral by glossary filter
+
+##Objectives:
+
+* The site retrieves its data from a SQLite database.
+* Add a link that goes to a random mineral details page to the layout template.
+* The minerals are displayed as a multi-column list.
+* Clicking a mineral opens the details page for the mineral.
+* The most common or important details are displayed first.
+* The names of each attribute in the details is displayed in title case.
+* There are test for the details view.
+* The tests cover a reasonable amount of the expected functionality (50-85%).
+* In addition to those provided, additional styles are added and used.
