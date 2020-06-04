@@ -1,35 +1,28 @@
 # Mineral Catalog
 
-## Populate database with JSON file
+## Description
 
-I used custom django-admin command to add minerals to database.
+This app displays information about various minerals (AKA rocks).
 
-*Command file directory: minerals/management/commands/populate.py
-*JSON file directory: minerals/management/commands/minerals.json
-*Command: python manage.py populate minerals/management/commands/minerals.json
+## Technologies and Packages Used in App
 
-Command to run tests: python manage.py test minerals.tests  
+* Django
+* [Django Bootstrap4](https://pypi.org/project/django-bootstrap4/)
+* [Django Debug Toolbar](https://pypi.org/project/django-debug-toolbar/)
+* [Django Filter](https://pypi.org/project/django-filter/)
 
-All Mineral Model field are type CharField. Some field are missing in JSON file so added
-blank=True option to the field.
+## How to use
 
-In this project I have two views:
-* View with List of all minerals from database and footer with link to random mineral
-* View with mineral detail page
+1. Add minerals to database.
 
-In this project i have 3 filters:
-* user can search for mineral, search filter will check all model fields
-* user can search for mineral by group and category with dropdown filter
-* user can search for mineral by glossary filter
+* Command file directory: minerals/management/commands/populate.py
+* JSON file directory: minerals/management/commands/minerals.json
+* Command: python manage.py populate minerals/management/commands/minerals.json
 
-##Objectives:
+2. Run app
 
-* The site retrieves its data from a SQLite database.
-* Add a link that goes to a random mineral details page to the layout template.
-* The minerals are displayed as a multi-column list.
-* Clicking a mineral opens the details page for the mineral.
-* The most common or important details are displayed first.
-* The names of each attribute in the details is displayed in title case.
-* There are test for the details view.
-* The tests cover a reasonable amount of the expected functionality (50-85%).
-* In addition to those provided, additional styles are added and used.
+* python3 -m venv env
+* source ./env/bin/activate
+* pip install --upgrade pip && pip install -r requirements.txt
+* python manage.py migrate
+* python manage.py runserver 0.0.0.0:8000
